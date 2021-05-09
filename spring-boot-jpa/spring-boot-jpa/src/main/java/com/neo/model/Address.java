@@ -5,13 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity // 实体类
 public class Address {
 
-    @Id
-    @GeneratedValue
+    @Id // 主键
+    @GeneratedValue // 排序规则
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false) // 必须有值
     private Long userId;
     private String province;
     private String city;

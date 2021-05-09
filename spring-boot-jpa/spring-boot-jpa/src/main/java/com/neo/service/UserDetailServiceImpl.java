@@ -12,16 +12,17 @@ import javax.annotation.Resource;
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
-
+// impl和接口分开，不过最好还是专门整一个impl的package
 @Service
 public class UserDetailServiceImpl implements  UserDetailService{
 
-    @Resource
+    @Resource // 自动装载bean 也可以可以使用@Autowired
     private UserDetailRepository userDetailRepository;
 
     @Override
     public Page<UserDetail> findByCondition(UserDetailParam detailParam, Pageable pageable){
-
+        // 复杂查询使用Criteria 接口，对应root CriteriaBuilder，CriteriaQuery   https://banbanpeppa.github.io/2019/01/25/java/spring/spring-jpa-muti-query/
+        // Predicate 配合 Lambda 和 函数式编程使用 类似于一种限制条件 https://blog.csdn.net/qazzwx/article/details/107864622
         return userDetailRepository.findAll((root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<Predicate>();
             //equal 示例

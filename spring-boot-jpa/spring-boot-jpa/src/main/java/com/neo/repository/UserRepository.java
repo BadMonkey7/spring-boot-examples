@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("delete from User where id = ?1")
     void deleteById(Long id);
 
-    @Query("select u from User u where u.email = ?1")
+    @Query("select u from User u where u.email = ?1") //查询语句
     User findByEmail(String email);
 
     @Query("select u from User u")

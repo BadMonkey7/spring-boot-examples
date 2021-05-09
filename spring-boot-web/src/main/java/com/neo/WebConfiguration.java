@@ -15,6 +15,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// 注册 过滤器？ 不太会
 @Configuration
 public class WebConfiguration {
     @Bean
